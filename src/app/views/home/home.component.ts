@@ -57,6 +57,14 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  edit(element: PeriodicElement) : void{
+    this.openDialog(element);
+  }
+
+  delete(position: number): void{
+    this.dataSource = this.dataSource.filter(p => p.position !== position);
+  }
 }
 
   
