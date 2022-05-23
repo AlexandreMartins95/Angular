@@ -2,6 +2,7 @@
 <div class="container">
 
     <button mat-flat-button color="primary" (click)="openDialog(null)">Add Element</button>
+
     <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="position">

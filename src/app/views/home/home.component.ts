@@ -45,26 +45,29 @@ export class HomeComponent implements OnInit {
       data: element === null ? {
         position: null,
         name:'',
-        weigth: null,
+        weight: null,
         symbol: ''
-      } : {
+       } : {
         position: element.position,
         name: element.name,
-        weigth: element.weight,
+        weight: element.weight,
         symbol: element.symbol
       }
+    
     });
+  
 
     dialogRef.afterClosed().subscribe(result => {
       if(result !== undefined){
         if (this.dataSource.map(p => p.position).includes(result.position)){
           this.dataSource[result.position - 1] = result;
+          this.table.renderRows();
         } else{
           this.dataSource.push(result);
           this.table.renderRows();
         }
-      }
-    });
+      
+  }});
   }
 
   edit(element: PeriodicElement) : void{
